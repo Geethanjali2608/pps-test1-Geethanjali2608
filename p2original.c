@@ -15,6 +15,7 @@ void output(int a, int b, int sum)
 {
   printf("sum of %d and %d is %d\n",a,b,sum);
 }
+
 int main()
 {
 int a = input(); 
