@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main()
 {
-  printf("My friends are\nFariha\nSanjana A\nSanjana R\nGayathri\nAkshaya");
+  printf("My name is geethanjali");
 return 0;
 } 
