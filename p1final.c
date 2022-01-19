@@ -1,30 +1,10 @@
-#include <stdio.h>
-int input()
- {
-  int num;
-  printf("enter  a number\n");
-  scanf("%d",&num);
-  return num;
- }
-int add(int n1,int n2)
- {
-  float sum;
-  sum=a+b;
-  return sum;
- }
- void output(in ta,int b,int sum)
- {
-   printf("addition of %d + %d is %d",a,b,sum)
- }
+#include<stdio.h>
 int main()
- {
-   int a=109
-   int *b=&a;
-   printf("address of num1 is =%u\n",&a);
-   printf("value of num1 is %d\n",&b);
-   int num1,num2;
-   num1=input(); 
-   num2=input(); 
-   add(num1,num2);
+{
+  int a,b,sum;
+  printf("enter two numbers:\n");
+  scanf("%d%d",&a,&b);
+  sum=a+b;
+  printf("the sum of %d and %d is %d",a,b,sum);
   return 0;
- }
+}
