@@ -1,13 +1,9 @@
-gcc -g p1original.c
+ gcc -g p1final.c
  ./a.out
-Enter two numbers:
+enter two number
 2
-5
-add two numbers:7
- gdb main
-GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
-Copyright (C) 2018 Free Software Foundation, Inc.
- 
+6
+addition of 2 + 6 is = 8.000000
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -25,30 +21,38 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x772: file p1original.c, line 3.
+Breakpoint 1 at 0x7f3: file p1final.c, line 13.
 (gdb) r
 Starting program: /home/runner/pps-test1-Geethanjali2608-9/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p1original.c:3
-3   {
+Breakpoint 1, main () at p1final.c:13
+13    add();
+(gdb) s
+add () at p1final.c:3
+3    {
 (gdb) n
-5     printf("Enter two numbers:\n");
+6     printf("enter two number\n");
 (gdb) n
-Enter two numbers:
-6     scanf("%d%d",&a,&b);
+enter two number
+7     scanf("%d%d",&num1,&num2);
 (gdb) n
-4
-5
-7     c=a+b;
+3
+6
+8     sum=num1+num2;
 (gdb) n
-8     printf("add two numbers:%d\n",c);
+9     printf("addition of %d + %d is = %f\n",num1,num2,sum);
+(gdb) p num1
+$1 = 3
+(gdb) p num2
+$2 = 6
 (gdb) p sum
-No symbol "sum" in current context.
-(gdb) p c
-$1 = 9
+$3 = 9
 (gdb) n
-add two numbers:9
-9     return 0;
+addition of 3 + 6 is = 9.000000
+10   }
 (gdb) n
-10  } (gdb) 
+main () at p1final.c:14
+14    return 0;
+(gdb) n
+15   }
