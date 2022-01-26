@@ -1,10 +1,10 @@
- gcc -g p5original.c
+gcc -g p5original.c
  ./a.out
-Enter the three numbers
-5
+enter the number:
+3
 7
-2
-7 is the largest of them all
+4
+largest number is 7
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -22,27 +22,52 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x80b: file p5original.c, line 33.
+Breakpoint 1 at 0x824: file p5original.c, line 27.
 (gdb) r
 Starting program: /home/runner/pps-test1-Geethanjali2608-9/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p5original.c:33
-33  {
+Breakpoint 1, main () at p5original.c:27
+27  {
 (gdb) n
-35    input(&x,&y,&z);
+29    input(&a,&b,&c);
+(gdb) s
+input (a=0x7ffe7760a238, b=0x7ffe7760a23c, c=0x7ffe7760a240)
+    at p5original.c:4
+4     printf("enter the number:\n");
 (gdb) n
-Enter the three numbers
+enter the number:
+5     scanf("%d %d %d",a,b,c);
+(gdb) n
+2
+7
 4
-5
-9
-36    cmp(x,y,z,&large);
+6   }
 (gdb) n
-37    printf("%d is the largest of them all\n",large);
+main () at p5original.c:30
+30    cmp(a,b,c,&large);
+(gdb) s
+cmp (a=2, b=7, c=4, large=0x7ffe7760a244) at p5original.c:9
+9     if(a>b && a>c)
+(gdb) n
+13    else if(b>c)
+(gdb) n
+15     *large=b;
+(gdb) n
+21  }
+(gdb) n
+main () at p5original.c:31
+31    output(large);
+(gdb) s
+output (large=7) at p5original.c:24
+24    printf("largest number is %d\n",large);
 (gdb) p large
-$1 = 9
+$1 = 7
 (gdb) n
-9 is the largest of them all
-38    return 0;
+largest number is 7
+25  }
 (gdb) n
-39  }(gdb) 
+main () at p5original.c:32
+32    return 0;
+(gdb) n
+33  }  (gdb)
