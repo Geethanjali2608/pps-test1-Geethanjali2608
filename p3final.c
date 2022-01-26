@@ -14,8 +14,9 @@ void output(int a,int b,int sum)
 }
 int main()
 {
-  int x,y,z;
-  input(&x,&y);
-  add(x,y,&z);
-  output(x,y,z);
+  int a,b,sum;
+  input(&a,&b);
+  add(a,b,&sum);
+  output(a,b,sum);
+  return 0;
 }

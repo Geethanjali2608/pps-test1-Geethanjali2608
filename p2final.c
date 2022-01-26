@@ -2,18 +2,18 @@
 int input()
 {
   int a;
-  printf("Enter any value:\n");
+  printf("enter a value:\n");
   scanf("%d",&a);
   return a;
 }
 int add(int a,int b)
 {
-  int c=a+b;
-  return c;
+  int k=a+b;
+  return k;
 }
 void output(int a,int b,int sum)
 {
-  printf("the sum of %d and %d is %d\n",a,b,sum);
+ printf("the sum of %d and %d is %d\n",a,b,sum); 
 }
 int main()
 {
