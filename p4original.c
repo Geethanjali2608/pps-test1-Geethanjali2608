@@ -1,42 +1,53 @@
 #include<stdio.h>
+int input()
+{
+  int g;
+  printf("Enter the value\n");
+  scanf("%d",&g);
+  return g;
+}
 int cmp(int a,int b,int c)
 {
-  if(a>b)
+  int largest;
+  if(a>b && a>c)
   {
-    if(a>c)
-    {
-      return a;
-    }
-    else
-    {
-      return c;
-    } 
+    largest=a;
+    return a;
+  }
+  else if(b>c)
+  {
+    largest=b;
+    return b;
   }
   else
   {
-   if(b>c)
-   {
-    return b;
-   }
-   else
-   {
-     return c;
-   }
+    largest=c;
+    return c;
   }
+  return largest;
 }
-int input()
+void output(int a,int b, int c,int largest)
 {
-  int x;
-  scanf("%d",&x);
-  return x;
+  if(largest ==a)
+  {
+    printf("%d is the largest of %d and %d",a,b,c);
+  }
+  else if(largest==b)
+  {
+  printf("%d is the largest of %d and %d",b,a,c);
+  }
+  else
+  {
+    printf("%d is largest of %d and %d",c,a,b);
+  }
 }
 int main()
 {
-  int a,b,c,large;
-  printf("enter the three numbers\n");
-  a=input();
-  b=input();
-  c=input();
-  large=cmp(a,b,c);
-  printf("%d is the largest of the three\n",large);
+  int x,y,z,j;
+  x=input();
+  y=input();
+  z=input();
+  j=cmp(x,y,z);
+  output(x,y,z,j);
+  return 0;
 }
