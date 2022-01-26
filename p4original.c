@@ -30,15 +30,15 @@ void output(int a,int b, int c,int largest)
 {
   if(largest ==a)
   {
-    printf("%d is the largest of %d and %d",a,b,c);
+    printf("%d is the largest of %d and %d\n",a,b,c);
   }
   else if(largest==b)
   {
-  printf("%d is the largest of %d and %d",b,a,c);
+  printf("%d is the largest of %d and %d\n",b,a,c);
   }
   else
   {
-    printf("%d is largest of %d and %d",c,a,b);
+    printf("%d is largest of %d and %d\n",c,a,b);
   }
 }
 int main()
