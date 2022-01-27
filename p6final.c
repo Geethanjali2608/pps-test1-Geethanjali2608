@@ -8,13 +8,12 @@ int input_n()
 }
 int sum_n(int n)
 {
-  int i,x,sum=0;
+  int i,sum=0;
   for(i=1;i<=n;i++)
      {
        sum=sum+i;
      }
   return sum;
-  x=sum;
 }
 void output(int n,int sum)
 {
