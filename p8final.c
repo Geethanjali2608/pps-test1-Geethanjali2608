@@ -1,53 +1,34 @@
 #include<stdio.h>
-int input()
+#include<math.h>
+float input()
 {
-  int g;
-  printf("Enter the value\n");
-  scanf("%d",&g);
-  return g;
+  float x;
+  printf("enter any value:\n");
+  scanf("%f",&x);
+  return x;
 }
-int cmp(int a,int b,int c)
+float x,find_square_()
 {
-  int largest;
-  if(a>b && a>c)
+  float x;
+  float xn=x/2;
+  float xnext;
+  xnext=0.5*(xn+(x/xn));
+  while(fabs(xn-xnext)>0.000001)
   {
-    largest=a;
-    return a;
+    xn=xnext;
+    xnext=0.5*(xn+(x/xn));
   }
-  else if(b>c)
-  {
-    largest=b;
-    return b;
-  }
-  else
-  {
-    largest=c;
-    return c;
-  }
-  return largest;
+ return xnext;
 }
-void output(int a,int b, int c,int largest)
+void output(float x,float result)
 {
-  if(largest ==a)
-  {
-    printf("%d is the largest of %d and %d",a,b,c);
-  }
-  else if(largest==b)
-  {
-  printf("%d is the largest of %d and %d",b,a,c);
-  }
-  else
-  {
-    printf("%d is largest of %d and %d",c,a,b);
-  }
+  printf("the square root of %f is %f\n",x,result);
 }
 int main()
 {
-  int x,y,z,j;
-  x=input();
-  y=input();
-  z=input();
-  j=cmp(x,y,z);
-  output(x,y,z,j);
+  float a,result;
+  a=input();
+  result=find_square_root();
+  output(a,result);
   return 0;
 }
