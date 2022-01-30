@@ -1,0 +1,134 @@
+ gcc -g p8original.c
+ ./a.out
+Enter any number for which you want square root
+36
+The square root of 36.000000 is 6.000000
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x88d: file p8original.c, line 29.
+(gdb) r
+Starting program: /home/runner/pps-test1-Geethanjali2608-9/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p8original.c:29
+29    a=input();
+(gdb) s
+input () at p8original.c:4
+4   {
+(gdb) n
+6     printf("Enter any number for which you want square root\n");
+(gdb) n
+Enter any number for which you want square root
+7     scanf("%f",&x);
+(gdb) n
+36
+8     return x;
+(gdb) p x
+$1 = 36
+(gdb) n
+9   }
+(gdb) n
+main () at p8original.c:30
+30    result=find_square_root(a);
+(gdb) s
+find_square_root (x=36) at p8original.c:12
+12    float xn = x/2;
+(gdb) n
+14    xnext = 0.5 * (xn + (x/xn));
+(gdb) n
+15    while( fabs(xn - xnext) > 0.000001)
+(gdb) n
+17      xn = xnext;
+(gdb) n
+18      xnext = 0.5 * (xn + (x/xn));
+(gdb) n
+15    while( fabs(xn - xnext) > 0.000001)
+(gdb) p xn
+$2 = 10
+(gdb) p x
+$3 = 36
+(gdb) n
+17      xn = xnext;
+(gdb) p xnext
+$4 = 6.80000019
+(gdb) n
+18      xnext = 0.5 * (xn + (x/xn));
+(gdb) p xn
+$5 = 6.80000019
+(gdb) n
+15    while( fabs(xn - xnext) > 0.000001)
+(gdb) p x
+$7 = 36
+(gdb) n
+17      xn = xnext;
+(gdb) p xnext
+$8 = 6.04705906
+(gdb) n
+18      xnext = 0.5 * (xn + (x/xn));
+(gdb) n
+15    while( fabs(xn - xnext) > 0.000001)
+(gdb) p xn
+$9 = 6.04705906
+(gdb) p xnext
+$10 = 6.00018311
+(gdb) p xn-xnext
+$11 = 0.0468759537
+(gdb) n
+17      xn = xnext;
+(gdb) n
+18      xnext = 0.5 * (xn + (x/xn));
+(gdb) n
+15    while( fabs(xn - xnext) > 0.000001)
+(gdb) p xn
+$12 = 6.00018311
+(gdb) p xnext
+$13 = 6
+(gdb) p xn-xnext
+$14 = 0.000183105469
+(gdb) n
+17      xn = xnext;
+(gdb) n
+18      xnext = 0.5 * (xn + (x/xn));
+(gdb) n
+15    while( fabs(xn - xnext) > 0.000001)
+(gdb) p xn
+$15 = 6
+(gdb) p xnext
+$16 = 6
+(gdb) p xn-xnext
+$17 = 0
+(gdb) n
+20    return xnext;
+(gdb) p xnext
+$18 = 6
+(gdb) n
+21  }
+(gdb) n
+main () at p8original.c:31
+31    output(a,result);
+(gdb) s
+output (x=36, result=6) at p8original.c:24
+24    printf("The square root of %f is %f\n",x,result);
+(gdb) n
+The square root of 36.000000 is 6.000000
+25  }
+(gdb) n
+main () at p8original.c:32
+32    return 0;
+(gdb) n
+33  }(gdb)
